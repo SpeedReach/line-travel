@@ -1,0 +1,27 @@
+FROM node:18-alpine AS base
+
+# Install dependencies only when needed
+FROM base AS deps
+WORKDIR /app
+
+# Install Yarn
+RUN apk add --no-cache yarn
+
+COPY . .
+
+EXPOSE 3000
+ENV PORT 3000
+ENV HOSTNAME localhost
+
+# Create a startup script
+COPY --chown=nextjs:nodejs <<EOF /app/start.sh
+#!/bin/sh
+echo "Running migrations..."
+yarn migration
+echo "Starting application..."
+yarn dev
+EOF
+
+RUN chmod +x /app/start.sh
+
+CMD ["/app/start.sh"]
