@@ -1,6 +1,10 @@
 # Line Travel
 This is the assignment for line travel.
 
+## Install dependencies
+```bash
+yarn
+```
 
 ## Api Doc
 
@@ -36,6 +40,16 @@ I used drizzle for it's popularity and database migration.
 
 
 ## Run
+( Run `docker compose down -v` to ensure clean state )  
 
-production: docker compose up --build  
-dev: docker compose -f docker-compose.dev.yml up --build
+### Production
+Remember to change database user/password
+```bash
+docker compose up --build 
+```
+
+### Development
+
+```bash
+docker compose -f docker-compose.dev.yml up --build
+```
