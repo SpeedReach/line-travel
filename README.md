@@ -37,5 +37,5 @@ I used drizzle for it's popularity and database migration.
 
 ## Run
 
-production: docker compose up --build
+production: docker compose up --build  
 dev: docker compose -f docker-compose.dev.yml up --build
