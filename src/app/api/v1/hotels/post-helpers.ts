@@ -42,7 +42,6 @@ export async function ParsePostRequest(request: NextRequest): Promise<PostHotelR
         if(error instanceof z.ZodError){
             return new Error(error.message);
         }
-        console.log(error);
         return new Error('Invalid Request');
     }
 }
